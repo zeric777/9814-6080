@@ -1,0 +1,27 @@
+#VRML_SIM R2025a utf8
+# Describe the functionality of your PROTO here.
+
+
+PROTO goalNode [
+  field SFVec3f translation 0 0 0
+  field SFRotation rotation 0 0 1 0
+  field SFString name "Goal"
+]
+{
+        Solid {
+            translation IS translation
+            rotation IS rotation
+            name IS name
+            children [
+                Shape {
+                    appearance PBRAppearance {
+                        baseColor 0 1 0
+                    }
+                    geometry Cylinder {
+                        radius 0.1
+                        height 0.1
+                    }
+                }
+            ]
+        }
+}

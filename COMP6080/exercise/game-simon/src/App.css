@@ -1,0 +1,64 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+body {
+  background: #222;
+  color: white;
+  text-align: center;
+  font-family: Arial;
+}
+
+.container {
+  margin-top: 40px;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(2, 150px);
+  grid-template-rows: repeat(2, 150px);
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.btn {
+  width: 150px;
+  height: 150px;
+  border-radius: 20px;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: 0.2s;
+}
+
+.btn.active {
+  opacity: 1;
+  filter: brightness(1.5);
+}
+
+.red { background: #ff4d4d; }
+.green { background: #4dff4d; }
+.blue { background: #4d4dff; }
+.yellow { background: #ffff4d; }
+
+.start {
+  padding: 12px 25px;
+  font-size: 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.gameover {
+  font-size: 22px;
+  color: #ff4d4d;
+  margin-bottom: 15px;
+}
+
+.round {
+  margin-top: 15px;
+  font-size: 20px;
+}

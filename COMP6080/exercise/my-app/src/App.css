@@ -1,0 +1,818 @@
+/* The overall document/page should have a margin of 0 */
+.Document {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;  
+}
+
+/* 80px high. (0.5)
+Has a width that spans the full width of the viewport. (0.5)
+Has property position: fixed such that no matter where the user scrolls the header is visible. (0.5)
+Has a background colour of #eeeeee. (0.5) */
+.header {
+  height: 80px;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  background-color: #eeeeee;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Logo{
+  height: 50px;
+  width: 50px;
+  margin: 15px;
+
+}
+/* Contains a section for navigation that:
+
+For viewport widths over 800px, has text Home | Blanko | Slido | Tetro. (0.5)
+For viewport widths less than or equal to 800px, has text H | B | S | T. (0.5)
+Has the text aligned on the right hand side of the header bar. (0.5)
+Has the Home or H text linking to the page /; has the Blanko or B text linking to the page /blanko; has the Slido or S text linking to the page /slido; and has the Tetro or T text linking to the page /tetro. (1.5) */
+
+
+.nav-large { 
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.nav-small { display: none; }
+
+
+
+/* All screens shall have a footer bar that:
+Has a height of 50px. (0.5)
+Has a width that spans the full width of the viewport. (0.5)
+Is not fixed to the bottom of the viewport - but is instead fixed to the bottom of the document/page (i.e. if a page is twice the height of the viewport, the footer will only be visible when you scroll to the bottom). (0.5)
+Has a background colour of #999999 (1) */
+.footer {
+  height: 50px;
+  width: 100vw;
+  background-color: #999999;
+  position: relative;
+  bottom: 0;
+}
+
+
+.home,.game1,.game2,.game3 {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  /* background-color: aqua; */
+}
+
+
+
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  gap: 10px;
+}
+.grid1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  gap: 2px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+}
+.row1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+
+}
+
+.cell {
+  width: 150px;
+  height: 150px;
+  background: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #25b471;
+  font-size: 24px;
+  cursor: pointer;
+  
+  
+}
+
+.cell1 {
+  width: 10px;
+  height: 10px;
+  background: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #25b471;
+  font-size: 24px;
+  cursor: pointer;
+  
+  
+}
+.cell-img {
+  width: 135px;
+  height: 135px;
+}
+.reset {
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.cell.winner {
+  background: green;
+}
+
+
+
+/* 贪吃蛇游戏 */
+.snake-wrapper {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.snake-board {
+  width: min(90vw, 480px);
+  height: min(90vw, 480px);
+  border: 2px solid #333;
+  background-color: #fafafa;
+  display: flex;
+  flex-direction: column;
+}
+
+.snake-row {
+  flex: 1;
+  display: flex;
+}
+
+.snake-cell {
+  flex: 1;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+}
+
+.snake-body {
+  background-color: #4caf50;
+}
+
+.snake-head {
+  background-color: #2e7d32;
+}
+
+.snake-food {
+  background-color: #f44336;
+}
+
+.snake-info {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+.snake-over {
+  color: #c00;
+  font-weight: bold;
+}
+
+.snake-hint {
+  font-size: 0.9rem;
+  color: #555;
+  text-align: center;
+}
+
+/* ========= Hanoi ========= */
+
+.hanoi-wrapper {
+  width: 100%;
+  height: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.hanoi-board {
+  width: 100%;
+  max-width: 900px;
+  height: 60%;
+  min-height: 260px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
+}
+
+.hanoi-column {
+  flex: 1;
+  max-width: 280px;
+  margin: 0 8px;
+  border: 1px solid #ccc;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #ffffff;
+}
+
+.hanoi-column-selected {
+  background-color: #f5f5f5;
+  outline: 2px solid #4a90e2;
+}
+
+.hanoi-pole {
+  position: absolute;
+  top: 10%;
+  bottom: 16px;
+  width: 8px;
+  background-color: #2b1515;
+  border-radius: 4px;
+}
+
+.hanoi-disks {
+  width: 100%;
+  padding-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 4px;
+}
+
+.hanoi-disk {
+  height: 18px;
+  border-radius: 4px;
+  background-color: rgb(161, 38, 223);
+  border: 1px solid #000;
+}
+
+.hanoi-col-label {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.8rem;
+  padding-bottom: 2px;
+  color: #555;
+}
+
+.hanoi-controls {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.hanoi-controls button {
+  padding: 4px 12px;
+  cursor: pointer;
+}
+
+.hanoi-win-text {
+  color: #0a0;
+  font-weight: bold;
+}
+
+.hanoi-hint {
+  font-size: 0.9rem;
+  color: #555;
+  text-align: center;
+}
+
+/* ===== Guess Number Game ===== */
+
+.guess-box {
+  max-width: 480px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.guess-message {
+  min-height: 1.5em;
+}
+
+.guess-input-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.guess-input-row input {
+  width: 120px;
+  padding: 4px 8px;
+  text-align: center;
+}
+
+.guess-status {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.guess-win {
+  margin-left: 8px;
+  color: #0a0;
+  font-weight: bold;
+}
+
+.guess-lose {
+  margin-left: 8px;
+  color: #c00;
+  font-weight: bold;
+}
+
+.guess-hint {
+  font-size: 0.85rem;
+  color: #666;
+  text-align: center;
+}
+
+
+
+/* ===== Higher or Lower Game ===== */
+
+.hl-box {
+  max-width: 480px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.hl-current {
+  font-size: 1.1rem;
+}
+
+.hl-current-num {
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.hl-message {
+  min-height: 2em;
+  text-align: center;
+}
+
+.hl-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.hl-buttons button {
+  padding: 6px 14px;
+  cursor: pointer;
+}
+
+.hl-status {
+  font-size: 0.9rem;
+  color: #555;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hl-gameover {
+  color: #c00;
+  font-weight: bold;
+}
+
+.hl-hint {
+  font-size: 0.85rem;
+  color: #666;
+  text-align: center;
+}
+
+/* ===== Minesweeper Game ===== */
+
+.mine-status {
+  margin: 12px 0;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.mine-win {
+  margin-left: 10px;
+  color: #0a0;
+  font-weight: bold;
+}
+
+.mine-lose {
+  margin-left: 10px;
+  color: #c00;
+  font-weight: bold;
+}
+
+.mine-board {
+  display: grid;
+  grid-template-columns: repeat(8, 38px);
+  grid-gap: 4px;
+  margin: 10px auto;
+}
+
+.mine-cell {
+  width: 38px;
+  height: 38px;
+  background-color: #ddd;
+  border: 1px solid #aaa;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.mine-cell.revealed {
+  background-color: #f7f7f7;
+  border-color: #999;
+}
+
+.mine-cell.flagged {
+  background-color: #ffe3e3;
+}
+
+.mine-cell:hover {
+  background-color: #ccc;
+}
+
+.mine-reset {
+  margin-top: 14px;
+  padding: 6px 14px;
+  background-color: #eee;
+  border: 1px solid #aaa;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.mine-reset:hover {
+  background-color: #ddd;
+}
+
+
+/* =====blanko Game ===== */
+.blanko_dis{
+  display: flex;
+  flex-direction: row;
+}
+.each{
+  border: 1px solid black;
+  height: 30px;
+  width: 30px;
+}
+.each input{
+  margin: 0px;
+  height: 20px;
+  width: 20px;
+  text-align: center;
+}
+
+/* ===== Tetro ===== */
+
+.tetro-wrapper {
+  width: 100%;
+  height: 100%;
+  padding: 20px 20px 100px 20px; /* 上/左/右 20px，下 100px */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.tetro-board {
+  width: 100%;
+  max-width: 600px;
+  /* 填满高度：稍微给个比例，10 宽 x 12 高 */
+  aspect-ratio: 10 / 12;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  background-color: transparent;
+}
+
+.tetro-cell {
+  border: 1px solid #333333;
+  background-color: transparent;
+}
+
+/* 已锁定的普通块 */
+.tetro-cell-filled {
+  background-color: #999;
+}
+
+/* 当前下落的方块 */
+.tetro-cell-active {
+  background-color: #f2a65a;
+}
+
+/* 满行后变绿的块 */
+.tetro-cell-green {
+  background-color: rgb(0, 255, 0);
+}
+
+.tetro-controls {
+  margin-top: 16px;
+}
+
+.tetro-hint {
+  font-size: 0.9rem;
+  color: #555;
+  text-align: center;
+  max-width: 360px;
+}
+
+
+/* ==== Car Game ==== */
+
+.car-wrapper {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.car-board {
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 3 / 8;          /* 3 列、8 行 */
+  border: 2px solid #333;
+  background-color: #111;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+}
+
+.car-cell {
+  border: 1px solid #333;
+  position: relative;
+}
+
+.car-car {
+  width: 70%;
+  height: 60%;
+  background-color: #00bfff;
+  border-radius: 4px;
+  margin: auto;
+  margin-top: 10%;
+}
+
+.car-obstacle {
+  width: 70%;
+  height: 40%;
+  background-color: #ff5555;
+  border-radius: 2px;
+  margin: auto;
+  margin-top: 15%;
+}
+
+.car-status {
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.car-controls {
+  margin-top: 8px;
+}
+
+.car-hint {
+  font-size: 0.85rem;
+  color: #666;
+  text-align: center;
+  max-width: 360px;
+}
+
+
+
+/* game13   */
+.selected {
+  border: 3px solid red;
+}
+
+
+/* === Jigsaw === */
+
+.jigsaw-board {
+  /* 3×3 网格 */
+  display: grid;
+  grid-template-columns: repeat(3, 100px); /* 你可以调成 150px */
+  grid-template-rows: repeat(3, 100px);
+  gap: 0;
+  border: 2px solid #333;
+  margin-bottom: 16px;
+}
+
+.jigsaw-cell {
+  border: 1px solid #333;
+  background-color: #f8f8f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.jigsaw-piece-label {
+  font-weight: bold;
+}
+
+/* 下方拼图块按钮区域 */
+.jigsaw-pieces {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.jigsaw-piece-button {
+  min-width: 50px;
+  min-height: 50px;
+  border: 1px solid #666;
+  background-color: #fff;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.jigsaw-piece-button-selected {
+  border: 2px solid #ff6600;
+  background-color: #ffe6cc;
+}
+
+.jigsaw-controls {
+  margin-top: 12px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+.jigsaw-success-text {
+  color: #0a0;
+  font-weight: bold;
+}
+
+/* ==== Frog Road Game ==== */
+
+.frog-status {
+  margin: 10px 0;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.frog-win {
+  margin-left: 10px;
+  color: #0a0;
+  font-weight: bold;
+}
+
+.frog-lose {
+  margin-left: 10px;
+  color: #c00;
+  font-weight: bold;
+}
+
+.frog-road {
+  display: grid;
+  grid-template-columns: repeat(10, 45px);
+  gap: 4px;
+  margin: 15px auto;
+}
+
+.frog-cell {
+  width: 45px;
+  height: 45px;
+  background: #e5e5e5;
+  border: 1px solid #aaa;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.frog-cell:hover {
+  background-color: #ccc;
+}
+
+.frog {
+  background-color: #aaffaa;
+}
+
+.car {
+  background-color: #ffcccc;
+}
+
+.frog-reset {
+  margin-top: 14px;
+  padding: 6px 14px;
+  background-color: #eee;
+  border: 1px solid #aaa;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.frog-reset:hover {
+  background-color: #ddd;
+}
+
+
+
+/* ==== Frog Game ==== */
+
+.frog-board {
+  display: grid;
+  grid-template-columns: repeat(7, 40px);  /* 7 列 */
+  grid-template-rows: repeat(5, 40px);     /* 5 行 */
+  gap: 0;
+  border: 2px solid #333;
+  margin-top: 12px;
+}
+
+.frog-cell {
+  border: 1px solid #333;
+  box-sizing: border-box;
+}
+
+/* 最上面一行：目标区域 */
+.frog-goal {
+  background-color: #b3e5fc; /* 淡蓝色 */
+}
+
+/* 中间车道 */
+.frog-road {
+  background-color: #eeeeee;
+}
+
+/* 最下面一行：起点草地 */
+.frog-start {
+  background-color: #c8e6c9; /* 淡绿色 */
+}
+
+/* 车 */
+.frog-car {
+  background-color: #ff5252;
+}
+
+/* 青蛙 */
+.frog-frog {
+  background-color: #2e7d32; /* 深绿 */
+}
+
+@media (max-width: 800px) {
+  .hanoi-board {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+
+  .hanoi-column {
+    width: 70%;
+    max-width: none;
+    height: 160px;
+  }
+}
+
+
+
+
+
+
+

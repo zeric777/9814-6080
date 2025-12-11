@@ -1,0 +1,40 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/Parquetry.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/robotis/turtlebot/protos/TurtleBot3Burger.proto"
+EXTERNPROTO "../protos/goalNode.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  fieldOfView 0.1
+  orientation -0.5778313957317458 0.5771095555034168 0.5771095555034168 2.095843074843539
+  position 0.10310274549167463 0.3773884689904653 67.0109572886944
+  far 1000
+}
+RectangleArena {
+  floorSize 5 5
+  floorAppearance Parquetry {
+    type "light strip"
+  }
+  wallThickness 0.1
+  wallHeight 0.5
+}
+DirectionalLight {
+  ambientIntensity 1
+  direction 0 -1 0
+  intensity 5
+}
+DEF ROBOT TurtleBot3Burger {
+  controller "<none>"
+  supervisor TRUE
+}
+Background {
+  skyColor [
+    0.660319 0.831861 0.96965
+  ]
+}
+DEF GOAL goalNode {
+  translation 1.19 0.56 0
+}

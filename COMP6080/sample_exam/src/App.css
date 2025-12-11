@@ -1,0 +1,189 @@
+
+
+
+/* The overall document/page should have a margin of 0 */
+.Document {
+  margin: 0;
+  display: flex;
+  width: 100vw;
+}
+
+/* 80px high. (0.5)
+Has a width that spans the full width of the viewport. (0.5)
+Has property position: fixed such that no matter where the user scrolls the header is visible. (0.5)
+Has a background colour of #eeeeee. (0.5) */
+.header {
+  height: 80px;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  background-color: #eeeeee;
+  display: flex;
+
+
+}
+
+.Logo{
+  height: 50px;
+  width: 50px;
+  margin: 15px;
+  float:left;
+}
+/* Contains a section for navigation that:
+
+For viewport widths over 800px, has text Home | Blanko | Slido | Tetro. (0.5)
+For viewport widths less than or equal to 800px, has text H | B | S | T. (0.5)
+Has the text aligned on the right hand side of the header bar. (0.5)
+Has the Home or H text linking to the page /; has the Blanko or B text linking to the page /blanko; has the Slido or S text linking to the page /slido; and has the Tetro or T text linking to the page /tetro. (1.5) */
+
+
+.nav-large { display: flex;text-align: right;
+  justify-content: flex-end;
+  display: flex;
+  align-items: center; 
+  margin-left: auto;
+}
+.nav-small { display: none; }
+
+
+
+
+
+@media (max-width: 800px) {
+.nav-small { 
+  display: flex;text-align: right;
+  justify-content: flex-end;
+  display: flex;
+  align-items: center; 
+  margin-left: auto;
+  
+}
+    .nav-large { display: none; }
+}
+
+.nav {
+  text-align: right;
+  justify-content: flex-end;
+  display: flex;
+}
+
+
+/* All screens shall have a footer bar that:
+
+Has a height of 50px. (0.5)
+Has a width that spans the full width of the viewport. (0.5)
+Is not fixed to the bottom of the viewport - but is instead fixed to the bottom of the document/page (i.e. if a page is twice the height of the viewport, the footer will only be visible when you scroll to the bottom). (0.5)
+Has a background colour of #999999 (1) */
+.footer {
+  height: 50px;
+  width: 100vw;
+  background-color: #999999;
+  position: absolute;
+  bottom: 0;
+}
+
+
+.home {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  /* background-color: aqua; */
+}
+
+.home h2{
+  color: red;
+  font-size: 2em;
+}
+
+.homereset {
+  border: none;
+  background-color: white;
+}
+
+.squarecontainers{
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  
+
+}
+
+.square{
+  height: 30px;
+  width: 30px;
+  border: #666666 2px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+  gap: 5px;
+}
+
+.inputbox{
+  height: 18px;
+  width: 18px;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.blanko_dis{
+  display: flex;
+  flex-direction: row;
+}
+.each{
+  border: 1px solid black;
+  height: 30px;
+  width: 30px;
+}
+.each input{
+  margin: 0px;
+  height: 20px;
+  width: 20px;
+  text-align: center;
+}
+
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  gap: 10px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+}
+
+.cell {
+  width: 150px;
+  height: 150px;
+  background: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #25b471;
+  font-size: 24px;
+  cursor: pointer;
+  
+  
+}
+.cell-img {
+  width: 135px;
+  height: 135px;
+}
+.reset {
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
